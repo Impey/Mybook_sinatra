@@ -6,16 +6,9 @@ class PostsController < Sinatra::Base
   # sets the view directory correctly
   set :views, Proc.new { File.join(root, "views") }
 
- 
+   get '/' do
 
-  # Turn on Sinatra Reloader
-  # configure :development do
-  #     register Sinatra::Reloader
-  # end
-
-  get '/' do
-
-      @title = "Blog posts"
+      @title = "Books I like"
 
       @posts = Post.all
   
