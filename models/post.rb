@@ -18,9 +18,13 @@ class Post
 
   end
 
+
+
+
+
   def self.open_connection
 
-      conn = PG.connect( dbname: "blog" )
+      conn = PG.connect( dbname: "spartasqlapp" )
 
   end
 
@@ -28,7 +32,7 @@ class Post
 
         conn = self.open_connection
 
-        sql = "SELECT id,title,body FROM post ORDER BY id"
+        sql = "SELECT email FROM trainer"
 
         results = conn.exec(sql)
 
@@ -73,9 +77,10 @@ class Post
     post = Post.new
 
     post.id = post_data['id']
-    post.title = post_data['title']
-    post.body = post_data['body']
-
+    post.title = post_data['email']
+    post.body = post_data['password']
+    
+  
     post
 
   end
